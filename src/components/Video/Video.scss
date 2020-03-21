@@ -1,0 +1,19 @@
+.video {
+  cursor: pointer;
+  padding: 16px;
+  &:hover {
+    background: #eee;
+  }
+  & > img {
+    width: 100%;
+    max-height: 224px;
+    object-fit: scale-down;
+  }
+  .video-title {
+    font-size: 16px;
+    color: #333;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
