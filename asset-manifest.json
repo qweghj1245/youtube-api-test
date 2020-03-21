@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/youtube-api-test/static/css/main.bc61e893.chunk.css",
+    "main.js": "/youtube-api-test/static/js/main.a43d845d.chunk.js",
+    "main.js.map": "/youtube-api-test/static/js/main.a43d845d.chunk.js.map",
+    "runtime-main.js": "/youtube-api-test/static/js/runtime-main.9d2c0696.js",
+    "runtime-main.js.map": "/youtube-api-test/static/js/runtime-main.9d2c0696.js.map",
+    "static/js/2.73b42dab.chunk.js": "/youtube-api-test/static/js/2.73b42dab.chunk.js",
+    "static/js/2.73b42dab.chunk.js.map": "/youtube-api-test/static/js/2.73b42dab.chunk.js.map",
+    "index.html": "/youtube-api-test/index.html",
+    "precache-manifest.90cfccc0340ff37a6b3b33d0a432b71c.js": "/youtube-api-test/precache-manifest.90cfccc0340ff37a6b3b33d0a432b71c.js",
+    "service-worker.js": "/youtube-api-test/service-worker.js",
+    "static/css/main.bc61e893.chunk.css.map": "/youtube-api-test/static/css/main.bc61e893.chunk.css.map",
+    "static/js/2.73b42dab.chunk.js.LICENSE.txt": "/youtube-api-test/static/js/2.73b42dab.chunk.js.LICENSE.txt",
+    "static/media/Icon-search.svg": "/youtube-api-test/static/media/Icon-search.cd9e75b5.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9d2c0696.js",
+    "static/js/2.73b42dab.chunk.js",
+    "static/css/main.bc61e893.chunk.css",
+    "static/js/main.a43d845d.chunk.js"
+  ]
+}
