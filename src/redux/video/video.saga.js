@@ -11,7 +11,7 @@ function* getVideo(payload) {
   try {
     const { payload: { search = '', pageToken = '', currentPage = 1, isSearch = false } } = payload;
     let api =
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=2&key=${process.env.REACT_APP_YOUTUBE_KEY}&q=${search}`;
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&key=${process.env.REACT_APP_YOUTUBE_KEY}&q=${search}`;
     if (pageToken) {
       api = api + '&pageToken=' + pageToken;
     }
