@@ -9,7 +9,7 @@ export default function Search() {
   const [searchText, setSearchText] = useState('');
   const searchVideo = (e) => {
     if (e.key === 'Enter') {
-      dispatch(getVideoStart({ search: searchText }));
+      dispatch(getVideoStart({ search: searchText, isSearch: true }));
     }
   };
 

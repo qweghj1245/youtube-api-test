@@ -20,7 +20,7 @@ export const getVideoFailure = (error) => ({
   payload: error,
 });
 
-export const pageChange = (page) => ({
+export const pageChange = (token) => ({
   type: PAGE_CHANGE,
-  payload: page,
+  payload: token,
 });

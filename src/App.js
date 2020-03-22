@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
 import Search from './components/Search/Search';
@@ -8,20 +8,22 @@ import { selectVideoList } from './redux/video/video.selector';
 function App() {
   const dispatch = useDispatch();
   const videoList = useSelector(selectVideoList);
-  const currentPage = useSelector(state => state.video.currentPage);
+  const pageTokens = useSelector(state => state.video.pageTokens);
+  const searchText = useSelector(state => state.video.searchText);
 
   /* 更換分頁 */
   const changeVideoList = (page) => {
     window.scrollTo(0, 0);
-    dispatch(pageChange(page));
+    if (!pageTokens[page - 1]) {
+      dispatch(getVideoStart({
+        search: searchText || '',
+        pageToken: pageTokens[page - 2],
+        currentPage: page
+      }));
+    } else {
+      dispatch(pageChange({ token: pageTokens[page - 1] }));
+    }
   }
-  /* 篩選列表 */
-  const filterVideoList = useMemo(() => {
-    let max = 10;
-    return videoList.filter((item, idx) => {
-      return idx < max * currentPage && idx >= 10 * (currentPage - 1);
-    });
-  }, [currentPage, videoList]);
 
   useEffect(() => {
     dispatch(getVideoStart({ search: '' }));
@@ -32,7 +34,7 @@ function App() {
       <Search />
       <div className="video-grid">
         {
-          videoList && videoList.length ? filterVideoList.map(video => <Video key={video.id.videoId} info={video} />) : null
+          videoList && videoList.length ? videoList.map(video => <Video key={video.id.videoId} info={video} />) : null
         }
       </div>
       <div className="pages">
