@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.scss';
 import Search from './components/Search/Search';
@@ -7,6 +7,7 @@ import { getVideoStart, pageChange } from './redux/video/video.action';
 import { selectVideoList } from './redux/video/video.selector';
 function App() {
   const dispatch = useDispatch();
+  const [pagination, setPagination] = useState([1, 2]);
   const videoList = useSelector(selectVideoList);
   const pageTokens = useSelector(state => state.video.pageTokens);
   const searchText = useSelector(state => state.video.searchText);
@@ -22,6 +23,9 @@ function App() {
       }));
     } else {
       dispatch(pageChange({ token: pageTokens[page - 1] }));
+    }
+    if (pagination.length === page) { 
+      setPagination(state => [...state, page++]);       
     }
   }
 
@@ -39,8 +43,9 @@ function App() {
       </div>
       <div className="pages">
         {
-          [1, 2, 3].map(page => <div onClick={() => changeVideoList(page)}>{page}</div>)
+          pagination.map(page => <div onClick={() => changeVideoList(page)}>{page}</div>)
         }
+        <span className="spread">...</span>
       </div>
     </div>
   );
